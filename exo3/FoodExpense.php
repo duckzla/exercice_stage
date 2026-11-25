@@ -4,7 +4,7 @@ class FoodExpense
 {
     private float $amount;
 
-    private $description;
+    private string $description;
 
     private \DateTime $happenedAt;
 
