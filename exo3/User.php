@@ -19,12 +19,12 @@ class User
         return $this->id;
     }
 
-    function getFirstname(): int
+    function getFirstName(): string
     {
         return $this->firstName;
     }
 
-    function getLastname(): string
+    function getLastName(): string
     {
         return $this->lastName;
     }

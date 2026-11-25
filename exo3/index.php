@@ -1,8 +1,7 @@
 <?php
 
 require_once("User.php");
-require_once("DrinkExpense.php");
-require_once("FoodExpense.php");
+require_once("Expense.php");
 
 const RED_TEXT = "\e[0;30;31m";
 const GREEN_TEXT = "\e[0;30;32m";
@@ -46,7 +45,7 @@ try {
         ).PHP_EOL);
 
         foreach ($users as $user) {
-            $balances[$user->getFullName()] += $expense->getUserShare($user);
+            $balances[$user->getFullName()] += $expense->getUserShare();
         }
     }
 
