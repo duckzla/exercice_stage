@@ -69,12 +69,20 @@ class Expense
         return $this->amount / $nombreParticipants;
     }
 
-    public function getUserShare(): float
+    public function getUserShare(User $user): float
     {
-        if (in_array($this->le_payeur, $this->participants, true)) {
-            return $this->getUnitaryShared();
-        }else{
-            return 0;
+        $share = 0;
+
+        // pour le payeur
+        if ($user === $this->le_payeur) {
+            $share += $this->amount;
         }
+
+        // pour les participants
+        if (in_array($user, $this->participants, true)) {
+            $share -= $this->getUnitaryShared();
+        }
+
+        return $share;
     }
 }

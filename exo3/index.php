@@ -45,7 +45,7 @@ try {
         ).PHP_EOL);
 
         foreach ($users as $user) {
-            $balances[$user->getFullName()] += $expense->getUserShare();
+            $balances[$user->getFullName()] += $expense->getUserShare($user);
         }
     }
 
