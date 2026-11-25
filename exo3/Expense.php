@@ -1,8 +1,10 @@
 <?php
 
-class DrinkExpense
+class Expense
 {
     private float $amount;
+
+    private string $type;
 
     private string $description;
 
@@ -18,27 +20,24 @@ class DrinkExpense
     /**
      * @param array <string, User> $participants
      */
-    public function __construct(float $amount, string $description, DateTime $happenedAt, User $le_payeur, array $participants)
+    public function __construct(float $amount, string $type, string $description, DateTime $happenedAt, User $le_payeur, array $participants)
     {
         $this->amount = $amount;
+        $this->type = $type;
         $this->description = $description;
         $this->happenedAt = $happenedAt;
         $this->le_payeur = $le_payeur;
         $this->participants = $participants;
     }
 
-
-    /**
-     * @return array<string, User> $participants
-     */
-    public function getParticipants(): array
-    {
-        return $this->participants;
-    }
-
-    public function getAmount(): float
+        public function getAmount(): float
     {
         return $this->amount;
+    }
+
+        public function getType(): string
+    {
+        return $this->type;
     }
 
     public function getDescription(): string
@@ -56,7 +55,12 @@ class DrinkExpense
         return $this->le_payeur;
     }
 
-    function get_type() {
-        return 'DRINK';
+    /**
+     * @return array<string, User> $participants
+     */
+    public function getParticipants(): array
+    {
+        return $this->participants;
     }
+
 }
