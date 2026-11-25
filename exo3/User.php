@@ -33,4 +33,9 @@ class User
     {
         return $this->mailAddress;
     }
+
+    function getFullName(): string
+    {
+        return $this->firstName . ' ' . $this->lastName;
+    }
 }

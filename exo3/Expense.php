@@ -63,4 +63,11 @@ class Expense
         return $this->participants;
     }
 
+    public function getUnitaryShared(): float
+    {
+        $nombreParticipants = count($this->participants);
+        return $this->amount / $nombreParticipants;
+    }
+
+    
 }

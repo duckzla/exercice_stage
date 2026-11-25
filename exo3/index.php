@@ -31,13 +31,13 @@ try {
     echo(GREEN_TEXT . "==================" . PHP_EOL);
 
     foreach ($users as $user) {
-        $balances[$user->getFullname()] = 0;
+        $balances[$user->getFullName()] = 0;
     }
 
     foreach ($expenses as $expense) {
         echo(sprintf(
             "%s - %s %s a payé %s€ (%s€ par participant) (%s)",
-            $expense->getType() === 'TYPE_FOOD' ? "\u{1F37D} " : "\u{1F37A}",
+            $expense->getType() === 'Food' ? "\u{1F37D} " : "\u{1F37A}",
             $expense->getPayer()->getFirstname(),
             $expense->getPayer()->getLastname(),
             $expense->getAmount(),
@@ -46,7 +46,7 @@ try {
         ).PHP_EOL);
 
         foreach ($users as $user) {
-            $balances[$user->getFullname()] += $expense->getUserShare($user);
+            $balances[$user->getFullName()] += $expense->getUserShare($user);
         }
     }
 
